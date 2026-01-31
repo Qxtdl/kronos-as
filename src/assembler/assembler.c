@@ -8,7 +8,7 @@
 #include "instruction.h"
 #include "label.h"
 #include "directive.h"
-#include "preprocessor.h"
+#include "preprocessor/preprocessor.h"
 
 uint32_t rom[65536];
 uint16_t ram[65536];
@@ -44,6 +44,7 @@ static void parse_labels(char *text) {
 
 void assemble_asm(char *text) {
     text = preprocess(text);
+    text = strstr(text, "#expansion allowed\n");
     char *new_text = sstrdup(text);
     parse_labels(new_text);
     free(new_text);

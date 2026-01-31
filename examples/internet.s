@@ -31,6 +31,8 @@
 #define RECV_IBUS       0xfff6  // bus containing incoming internet traffic
 #define WRITE_IBUS      0xfff5  // write a value on the ibus
 
+#expansion allowed
+
 start:
     li x1, 0
     li x2, 0

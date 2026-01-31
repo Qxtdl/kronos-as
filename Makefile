@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror \
-	-Wno-error=unused-variable -Wno-error=unused-parameter -Wno-error=switch
+	-Wno-error=unused-variable -Wno-error=unused-parameter -Wno-error=switch -Wno-error=unused-but-set-variable
 
 BUILD = build
 OUTPUT = $(BUILD)/kronos-as
