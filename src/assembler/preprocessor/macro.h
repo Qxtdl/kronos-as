@@ -9,4 +9,4 @@ typedef struct {
     const char *body;
 } macro_t;
 
-char *expand_macro(char *s, macro_t macro, const char *after);
+char *expand_macro(char *s, macro_t macro, char *after);

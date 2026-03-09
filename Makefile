@@ -4,7 +4,7 @@ CFLAGS = -g -Wall -Wextra -Werror \
 
 BUILD = build
 OUTPUT = $(BUILD)/kronos-as
-PROG_NAME = internet
+PROG_NAME = keyboard
 OUTPUT_ARGS = examples/$(PROG_NAME).s build/$(PROG_NAME).bin build/$(PROG_NAME)_ram.bin
 
 CSRCS = $(shell find src -name '*.c')
@@ -23,6 +23,7 @@ run:
 	./$(OUTPUT) $(OUTPUT_ARGS)
 	python kronos_encoder.py build/$(PROG_NAME).bin
 	python kronos_ram_encoder.py build/$(PROG_NAME)_ram.bin
+	python logisim_encoder.py build/$(PROG_NAME).bin build/$(PROG_NAME).hex
 
 clean:
 	rm -rf $(BUILD)

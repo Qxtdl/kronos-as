@@ -112,3 +112,18 @@ char *strreplace(char *orig, const char *rep, const char *with) {
     strcpy(tmp, orig);
     return result;
 }
+
+char *open_file(const char *filepath) {
+    FILE *file = fopen(filepath, "r");
+    if (!file)
+        app_abort("open_file()", "The file could not be found")
+    fseek(file, 0, SEEK_END);
+    long file_size = ftell(file);
+    rewind(file);
+    char *text = smalloc(file_size + 1);
+    size_t read_size = fread(text, 1, file_size, file);
+    if ((long)read_size != file_size)
+        app_abort("open_file()", "Error reading file")
+    text[file_size] = '\0';
+    return text;
+}

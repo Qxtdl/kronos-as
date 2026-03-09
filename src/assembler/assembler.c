@@ -17,7 +17,6 @@ uint16_t last_ram_address = 0;
 
 static inline char *filter_line(char *line) {
     if (strstr(line, "#")) return NULL;
-    if (strstr(line, ".")) return NULL;
     if (strstr(line, "//")) return NULL;
     return line;
 }
@@ -42,12 +41,13 @@ static void parse_labels(char *text) {
     last_instruction_address = 1;
 }
 
-void assemble_asm(char *text) {
-    text = preprocess(text);
-    text = strstr(text, "#expansion allowed\n");
+void assemble_asm(char *text, bool macro_expansion) {
+    if (macro_expansion) {
+        text = preprocess(text);
+        //text = strstr(text, "#expansion allowed\n");
+    }
     char *new_text = sstrdup(text);
     parse_labels(new_text);
-    free(new_text);
 
     char *line = strtok(text, "\n");
     while (line != NULL) {

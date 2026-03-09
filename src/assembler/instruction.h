@@ -58,7 +58,7 @@ static struct {
     {"beq.far", OPCODE_BEQ_FAR},
     {"lw", OPCODE_LW},
     {"sw", OPCODE_SW},
-    {"addihs", OPCODE_ADDI_HS},
+    {"addi.hs", OPCODE_ADDI_HS},
 };
 
 static struct {
@@ -67,7 +67,7 @@ static struct {
 } const pseudo_opcode_table[] = {
     {"nop", PSEUDO_OPCODE_NOP},
     {"li", PSEUDO_OPCODE_LI},
-    {"lihs", PSEUDO_OPCODE_LI_HS},
+    {"li.hs", PSEUDO_OPCODE_LI_HS},
     {"lil", PSEUDO_OPCODE_LIL},
     {"j", PSEUDO_OPCODE_J},
 };

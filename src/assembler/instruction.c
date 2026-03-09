@@ -91,8 +91,8 @@ instruction_t get_instruction(char *line) {
             instruction.rs2 = x(rs1);
             break;
         case OPCODE_BEQ:
-            instruction.rs1 = x(dest);
-            instruction.rs2 = x(rs1);            
+            instruction.dest = x(dest);
+            instruction.rs1 = x(rs1);
             instruction.imm = branch_target_to_ul(rs2);
             break;
         case OPCODE_JAL:
